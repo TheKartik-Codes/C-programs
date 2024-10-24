@@ -1,3 +1,5 @@
+//Practicing merge sort algorithm in C
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
