@@ -13,8 +13,8 @@ void heapify( int num[], int n, int i )
 {
     int largest=i;
 
-    int left=2*i+1;
-    int right=2*i+2;
+    int left=2*i+1; //formula for left node
+    int right=2*i+2; //formula for right node
 
     if ( left < n && num[left] > num[largest] )
     {
