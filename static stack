@@ -1,0 +1,140 @@
+//A C program to practice static stack operations.
+
+#include <stdio.h>
+#include<stdlib.h>
+
+#define max 5
+
+struct stack
+{
+    int data[max];
+    int top;
+};
+
+void init(struct stack *s_ptr)
+{
+    s_ptr->top=-1;
+    printf("\nA static stack has been created.\n");
+}
+
+int isfull(struct stack *s_ptr)
+{
+    return s_ptr->top==max-1;
+}
+
+int isempty(struct stack *s_ptr)
+{
+    return s_ptr->top==-1;
+}
+
+void push(struct stack *s_ptr,int data )
+{
+    s_ptr->data[++(s_ptr->top)]=data;
+}
+
+int pop(struct stack *s_ptr)
+{
+    int pop=s_ptr->data[s_ptr->top];
+    s_ptr->top--;
+    return pop;
+}
+
+int peek(struct stack *s_ptr)
+{
+    return s_ptr->data[s_ptr->top];
+}
+
+int main()
+{
+    
+    struct stack s;
+    int choice,data;
+    
+    printf("\n------Stack operations------\n");
+    printf("1.Create a static stack.\n");
+    printf("2.Push.\n");
+    printf("3.Pop.\n");
+    printf("4.Peek.\n");
+    printf("5.Isempty.\n");
+    printf("6.Isfull.\n");
+    printf("7.Exit.\n");
+     
+    do 
+    {
+        printf("\nEnter your choice:");
+        scanf("%d",&choice);
+        
+        switch(choice)
+        {
+            case 1 :
+                   init(&s);
+                   break;
+                   
+            case 2 : 
+                   if(isfull(&s))
+                   {
+                       printf("\nStack is full.\n");
+                   }
+                   else
+                   {
+                       printf("\nEnter data to push into stack: ");
+                       scanf("%d",&data);
+                       push(&s,data);
+                   }
+                   break;
+                   
+            case 3 :
+                   if(isempty(&s))
+                   {
+                       printf("\nStack is empty.\n");
+                   }
+                   else
+                   {
+                       printf("\nPopped data is %d.",pop(&s));
+                   }
+                   break;
+                   
+            case 4: 
+                  if (isempty(&s))
+                  {
+                      printf("\nStack is empty.\n");
+                  }
+                  else
+                  {
+                      printf("\nTopmost element is %d.\n",peek(&s));
+                  }
+                  break;
+             
+            case 5: 
+                   if (isempty(&s))
+                   {
+                       printf("\nStack is empty.\n");
+                   }
+                   else
+                   {
+                       printf("\nStack is not empty.\n");
+                   }
+                   break;
+                   
+            case 6:
+                  if (isfull(&s))
+                  {
+                      printf("\nStack is full.\n");
+                  }
+                  else
+                  {
+                      printf("\nStack is not full.\n");
+                  }
+                  break;
+                  
+            case 7: 
+                  printf("\nProgram has been excuted successfully.\n");
+                  exit(0);
+            
+            default:
+                   printf("\nPlease enter valid choice!\n");
+        }
+    }while(choice != 7);
+
+    return 0;
+}
