@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int binarysearch( int arr[], int n, int search)
+{
+    int l=0,r=n-1,mid;
+    
+    while ( l<r )
+    {
+        mid=(l+r)/2;
+        
+        if ( arr[mid]== search )
+        {
+            return mid;
+        }
+        else if ( search < arr[mid] )
+        {
+            r=mid-1;
+        }
+        else
+        {
+            l=mid+1;
+        }
+            
+    }
+    return -1;
+}
+
+int main() 
+{
+    int arr[]={0,1,2,3,4};
+    
+    int result=binarysearch(arr,5,3);
+    
+    printf("\nResult:= %d",result);
+    
+    return 0;
+}
