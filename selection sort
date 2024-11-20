@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+
+void selectionsort( int num[], int n)
+{
+    int min,temp;
+    
+    for ( int i=0; i<=n-2; i++ )
+    {
+        min=i;
+        for ( int j=i; j<=n-1 ;j++ )
+        {
+            if ( num[j]<num[min] )
+            {
+                min=j;
+            }
+        }
+        temp=num[i];
+        num[i]=num[min];
+        num[min]=temp;
+    }
+}
+
+int main()
+{
+    int n;
+    printf("\nEnter the no. of elements:");
+    scanf("%d",&n);
+    
+    int num[n];
+    
+    printf("\nEnter the elements:\n");
+    for (int i=0; i<n ; i++ )
+    {
+        scanf("%d",&num[i]);
+    }
+    
+    printf("\nArray elements:\n");
+    for (int i=0; i<n ; i++ )
+    {
+        printf("\t%d",num[i]);
+    }
+    
+    selectionsort(num,n);
+    
+    printf("\nArray elements after sorting:\n");
+    for (int i=0; i<n ; i++ )
+    {
+        printf("\t%d",num[i]);
+    }
+    
+
+    return 0;
+}
