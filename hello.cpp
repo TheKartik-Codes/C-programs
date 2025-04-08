@@ -1,3 +1,5 @@
+// This is a simple C++ program that prints "Hello World" to the console.
+
 #include<iostream>    /* standard input/output library which lets us work with different objects */
 
 using namespace std; // we use to get names from the standard library
